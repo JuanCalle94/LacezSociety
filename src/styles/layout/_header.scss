@@ -1,0 +1,33 @@
+.header__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 0.1px $lightgreytwo;
+
+    .header__nav-logo {
+        width: 40%;
+        margin: 20px 0px;
+
+        @include tablet {
+            width: 20%;
+        }
+
+        @include desktop {
+            width: 8%;
+        }
+    }
+
+    .header__nav-icons {
+        display: flex;
+        gap: 10px;
+
+        a {
+            color: $darkgrey;
+            background-color: $yellow;
+            padding: 8px;
+            border-radius: 10px;
+            font-size: 1.5rem;
+        }
+    }
+}

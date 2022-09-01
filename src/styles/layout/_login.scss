@@ -1,0 +1,131 @@
+.login__container {
+    height: 98vh;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.login__div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+    @include tablet {
+        width: 60%;
+    }
+
+    @include desktop {
+        width: 30%;
+    }
+
+    .login__logo {
+        width: 80%;
+        margin: 0px 0px 60px;
+        align-self: center;
+    }
+
+    .login__tittle {
+        font-size: 3rem;
+        color: $white;
+        margin: 10px 0px;
+
+        @include tablet {
+            font-size: 4rem;
+        }
+
+        @include desktop {
+            font-size: 5rem;
+        }
+    
+    }
+
+    .login__tittle-point {
+        color: $yellow;
+    }
+    
+}
+
+.login__options {
+    display: flex;
+    gap: 10px;
+    font-size: 2rem;
+    font-weight: $light;
+
+    a , span {
+        color:$white;
+        margin: 10px 0px;
+
+        &:hover {
+            font-weight: $regular;
+            color: $yellow;
+        }
+    }
+
+    span {
+        font-weight: $regular;
+        color: $yellow;
+    }
+}
+
+::placeholder {
+    color: $lightgrey;
+}
+
+.login__form {
+    margin: 10px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+
+    .login__form-inputs {
+        width: 100%;
+        padding: 15px 30px;
+        background-color: $lightgreytwo;
+        border: none;
+    }
+}
+
+.login__form-remember--div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+
+    .login__form-remember--text {
+        font-size: 1.4rem;
+        font-weight: $light;
+        margin-left: 5px;
+        color: $white;
+    }
+}
+
+.login__buttons {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 15px;
+    text-align: center;
+
+    .form__button--default {
+        width: 100%;
+        padding: 15px 30px;
+        background-color: $yellow;
+        border: none;
+        color: $darkgrey;
+        font-size: 1.5rem;
+    }
+
+    .button-login{
+        cursor: pointer;
+    }
+}
+

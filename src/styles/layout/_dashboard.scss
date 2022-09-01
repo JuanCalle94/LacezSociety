@@ -1,0 +1,142 @@
+.dashboard__container {
+    @include grid (3,4rem);
+
+    .dashboard__user {
+        grid-column: 1 / 4;
+        grid-row: 1;
+        color: $white;
+        border-bottom: solid 1px $lightgrey;
+    }
+
+    .dashboard__products {
+        grid-column: 1 / 3;
+        grid-row: 2/6;
+
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .dashboard__users {
+        grid-column: 3 / 4;
+        grid-row: 2/6;
+
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+}
+
+.user__info-container {
+    padding: 40px 0px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .yellow__line {
+        height: 1px;
+        width: 70px;
+        background-color: $yellow;
+        margin: 10px 0px;
+    }
+
+    .user__image {
+        clip-path: circle();
+        width: 10%;
+    }
+
+    .user__tittle {
+        font-size: 2.5rem;
+        font-weight: $bold;
+
+        .user__tittle-point {
+            color: $yellow;
+        }
+    }
+
+    .user__name {
+        font-size: 2rem;
+        font-weight: $regular;
+    }
+
+    .user__email {
+        font-size: 1.5rem;
+        font-weight: $light;
+    }
+}
+
+.products__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    nav ul {
+        display: flex;
+        padding: 0px;
+        gap: 25px;
+
+        li a {
+            color: $white;
+            font-size: 2rem;
+            font-weight: $bold;
+
+            &:hover {
+                color: $yellow;
+            }
+        }
+    }
+
+    .products__nav-all {
+        padding: 5px 15px;
+        color: $darkgrey;
+        background-color: $yellow;
+        font-size: 1.5rem;
+        font-weight: $regular;
+    }
+}
+
+.products__info {
+    @include grid (2,3rem);
+
+    .product__info {
+        background-color: $darkgreytwo;
+    }
+}
+
+.users__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    nav ul {
+        display: flex;
+        padding: 0px;
+        gap: 25px;
+
+        li a {
+            color: $white;
+            font-size: 2rem;
+            font-weight: $bold;
+
+            &:hover {
+                color: $yellow;
+            }
+        }
+    }
+
+    .users__nav-all {
+        padding: 5px 15px;
+        color: $darkgrey;
+        background-color: $yellow;
+        font-size: 1.5rem;
+        font-weight: $regular;
+    }
+}
+
+.users__info {
+    @include grid (1,3rem);
+
+    .user__info {
+        background-color: $darkgreytwo;
+    }
+}
