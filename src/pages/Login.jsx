@@ -1,18 +1,17 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useRef } from "react";
 
 function Login() {
 
-  const [products, setProducts] = useState([]);
+  const form = useRef(null);
 
-  useEffect(() => {
-    fetch("/api/products")
-      .then((response) => response.text())
-      .then((data) => {
-        console.log(data)
-        setProducts(data);
-      });
-  }, []);
+  const handeSubmit = ()=> {
+    const formData = new FormData(form.current);
+    const data = {
+      email: formData.get('email'),
+      password : formData.get('password')
+    }
+    console.log(data);
+  }
 
   return (
     <React.StrictMode>
@@ -28,12 +27,12 @@ function Login() {
             Bienvenido<span className="login__tittle-point">.</span>
           </h3>
           <div className="login__options">
-          <span>//</span>
+            <span>//</span>
             <a href="#" className="inicio-sesion">
               Administrador
             </a>
           </div>
-          <form id="formLogin" action="#" method="POST" className="login__form">
+          <form ref={form} id="formLogin" action="/dashboard" /* method="POST" */ className="login__form">
             <div id="divEmail" className="login__form-div">
               <input
                 className="login__form-inputs"
@@ -66,6 +65,7 @@ function Login() {
             <div className="login__buttons">
               <div>
                 <button
+                  onClick={handeSubmit}
                   className="form__button--default button-login"
                   type="submit"
                   id="confirmar"
