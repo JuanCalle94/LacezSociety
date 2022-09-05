@@ -5,7 +5,11 @@
     grid-column: 1 / 4;
     grid-row: 1;
     color: $white;
+    padding: 50px 0px;
     border-bottom: solid 1px $lightgrey;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .dashboard__products {
@@ -14,7 +18,8 @@
 
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
+    margin-bottom: 50px;
   }
 
   .dashboard__users {
@@ -23,12 +28,40 @@
 
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
+  }
+}
+
+.database__info-container {
+  display: flex;
+  gap: 20px;
+
+  .database__card {
+    padding: 10px 30px;
+    background-color: $darkgreytwo;
+    border-radius: 5px;
+    color: $white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .database__card-tittle {
+      font-size: 1.6rem;
+      width: 60%;
+      border-right: 0.1px solid $lightgreytwo;
+      font-weight: 400;
+    }
+
+    .database__card-total {
+      opacity: 0.8;
+      font-size: 2.5rem;
+      font-weight: 900;
+    }
   }
 }
 
 .user__info-container {
-  padding: 40px 0px;
+  padding: 20px 0px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -65,14 +98,27 @@
   }
 }
 
-.products__nav {
+.section__tittle {
+  color: $white;
+  font-size: 2.5rem;
+  padding-bottom: 15px;
+  border-bottom: 0.1px solid $lightgreytwo;
+  width: 75%;
+
+  .section__tittle-point {
+    color: $yellow;
+  }
+}
+
+.nav__general {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 15px;
 
   button {
+    padding: 0px;
     color: $white;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: $bold;
     border: none;
     background-color: $darkgrey;
@@ -85,51 +131,75 @@
 }
 
 button.active {
-    color: $yellow;
+  color: $yellow;
 }
 
 .products__info {
-  @include grid(2, 3rem);
+  @include grid(2, 2rem);
 
   .product__info {
+    position: relative;
     background-color: $darkgreytwo;
-  }
-}
-
-.users__nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  nav ul {
     display: flex;
-    padding: 0px;
-    gap: 25px;
-
-    li a {
-      color: $white;
-      font-size: 2rem;
-      font-weight: $bold;
-
-      &.active {
-        color: $yellow;
-      }
-    }
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
   }
 
-  .users__nav-all {
-    padding: 5px 15px;
-    color: $darkgrey;
-    background-color: $yellow;
-    font-size: 1.5rem;
-    font-weight: $regular;
+  .product-container {
+    background-color: $darkgreytwo;
   }
 }
 
 .users__info {
-  @include grid(1, 3rem);
+  @include grid(1, 0rem);
+  background-color: $darkgreytwo;
+  border-radius: 10px;
+  padding: 10px 30px;
 
   .user__info {
+    position: relative;
     background-color: $darkgreytwo;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 0.1px solid $darkgrey;
+
+    &:nth-last-child(1){
+      border: none;
+    }
+    
+    .user__info-image {
+      clip-path: circle();
+      width: 15%;
+    }
+
+    .user__info-data {
+      margin-left: 15px;
+      display: flex;
+      flex-direction: column;
+      color: $white;
+    }
+
+    .user__info-name {
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+
+    .user__info-email {
+      font-size: 1.4rem;
+      font-weight: 300;
+      opacity: 0.6;
+    }
+
+    .edit__icon {
+      right: 8%;
+    }
+
+    .trash__icon {
+      right: 3%;
+    }
   }
 }

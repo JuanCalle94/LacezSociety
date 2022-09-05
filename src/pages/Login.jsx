@@ -4,13 +4,14 @@ function Login() {
 
   const form = useRef(null);
 
-  const handeSubmit = ()=> {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const formData = new FormData(form.current);
     const data = {
       email: formData.get('email'),
       password : formData.get('password')
     }
-    console.log(data);
+    console.log(data)
   }
 
   return (
@@ -32,7 +33,7 @@ function Login() {
               Administrador
             </a>
           </div>
-          <form ref={form} id="formLogin" action="/dashboard" /* method="POST" */ className="login__form">
+          <form ref={form} id="formLogin" action="" /* method="POST" */ className="login__form">
             <div id="divEmail" className="login__form-div">
               <input
                 className="login__form-inputs"
@@ -65,7 +66,7 @@ function Login() {
             <div className="login__buttons">
               <div>
                 <button
-                  onClick={handeSubmit}
+                  onClick={handleSubmit}
                   className="form__button--default button-login"
                   type="submit"
                   id="confirmar"

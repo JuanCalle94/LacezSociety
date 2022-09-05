@@ -1,0 +1,50 @@
+.card__info {
+  position: relative;
+  background-color: $darkgreytwo;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+
+  &:hover {
+    border: solid 1px $yellow;
+  }
+
+  .card__info-image {
+    clip-path: circle();
+    width: 15%;
+  }
+
+  .card__info-data {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    color: $white;
+  }
+
+  .card__info-name {
+    width: 70%;
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+
+  .card__info-price {
+    color: $yellow;
+    font-size: 1.8rem;
+    font-weight: 700;
+
+    .price__currency {
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+  }
+
+  .edit__icon {
+    right: 8%;
+  }
+
+  .trash__icon {
+    right: 3%;
+  }
+}
