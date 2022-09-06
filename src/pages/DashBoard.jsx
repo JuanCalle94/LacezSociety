@@ -46,7 +46,7 @@ function DashBoard() {
 
   const [users, setUsers] = useState([]);
   const [filteredUser, setFilteredUser] = useState([]);
-  const [activeRole, setActiveRole] = useState(0);
+  const [activeRole, setActiveRole] = useState(2);
 
   useEffect(() => {
     fetch("http://localhost:3030/api/users")

@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+const image = require.context('../../../ProyectoIntegradorG9/public/img/users', true);
+
 function UserCard(props) {
   return (
     <React.StrictMode>
@@ -13,7 +15,7 @@ function UserCard(props) {
       >
         <img
           className="user__info-image"
-          src={props.avatar}
+          src={image(`./${props.avatar}`)}
           alt="img"
         />
         <div className="user__info-data">

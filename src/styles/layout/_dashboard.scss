@@ -75,7 +75,7 @@
 
   .user__image {
     clip-path: circle();
-    width: 10%;
+    width: 20%;
   }
 
   .user__tittle {
@@ -143,7 +143,7 @@ button.active {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 10px;
+    overflow: hidden;
     border-radius: 10px;
   }
 

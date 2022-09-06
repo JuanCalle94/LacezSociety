@@ -1,7 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+const image = require.context('../../../ProyectoIntegradorG9/public/img/products', true);
+
 function ProductCard({ product }) {
+
   return (
     <React.StrictMode>
       <motion.div
@@ -13,7 +16,7 @@ function ProductCard({ product }) {
       >
           <img
           className="card__info-image"
-          src=''
+          src={image(`./${product.image}`)}
           alt="img"
         />
         <div className="card__info-data">

@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 function FilterUsers({users , setFilteredUser , activeRole , setActiveRole}) {
 
   useEffect (()=>{
-    if(activeRole === 0){
+    if(activeRole === 2){
       setFilteredUser(users.filter((user) => user.role_id == 2));
       return;
     }

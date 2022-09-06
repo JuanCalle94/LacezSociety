@@ -4,7 +4,6 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: 10px;
   border-radius: 10px;
 
   &:hover {
@@ -12,12 +11,14 @@
   }
 
   .card__info-image {
-    clip-path: circle();
-    width: 15%;
+    padding: 0px;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 5px 0px;
   }
 
   .card__info-data {
-    margin-left: 15px;
+    margin-left: 25px;
     display: flex;
     flex-direction: column;
     color: $white;
@@ -27,11 +28,12 @@
     width: 70%;
     font-size: 1.6rem;
     font-weight: 400;
+    padding-bottom: 15px;
   }
 
   .card__info-price {
     color: $yellow;
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
 
     .price__currency {
