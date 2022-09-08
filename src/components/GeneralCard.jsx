@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 function GeneralCard(props) {
   return (
-    <React.StrictMode>
+    <>
     <motion.div
       layout
       animate={{ opacity: 1 }}
@@ -23,7 +23,7 @@ function GeneralCard(props) {
         <p className="user__info-email">{props.email || props.precio }</p>
       </div>
     </motion.div>
-  </React.StrictMode>
+  </>
   )
 }
 

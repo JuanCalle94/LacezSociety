@@ -2,7 +2,7 @@ import React from "react";
 
 function Header() {
   return (
-    <React.StrictMode>
+    <>
       <header className="container header__container">
         <img
           className="header__nav-logo"
@@ -18,7 +18,7 @@ function Header() {
           </a>
         </div>
       </header>
-    </React.StrictMode>
+    </>
   );
 }
 

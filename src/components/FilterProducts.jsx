@@ -13,13 +13,13 @@ function FilterProducts({products , setFiltered , activeCategory , setActiveCate
   }, [activeCategory] )
 
   return (
-    <React.StrictMode>
+    <>
       <div className="nav__general">
         <button className={activeCategory === 0 ? 'active' : null} onClick={()=>{setActiveCategory(0)}}>Todos</button>
         <button className={activeCategory === 1 ? 'active' : null} onClick={()=>{setActiveCategory(1)}}>Nuevo</button>
         <button className={activeCategory === 2 ? 'active' : null} onClick={()=>{setActiveCategory(2)}}>Retro</button>
       </div>
-    </React.StrictMode>
+    </>
   );
 }
 

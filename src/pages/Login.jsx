@@ -15,7 +15,7 @@ function Login() {
   }
 
   return (
-    <React.StrictMode>
+    <>
       <main className="container login__container">
         <div className="login__div">
           <img
@@ -78,7 +78,7 @@ function Login() {
           </form>
         </div>
       </main>
-    </React.StrictMode>
+    </>
   );
 }
 

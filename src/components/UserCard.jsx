@@ -5,7 +5,7 @@ const image = require.context('../../../ProyectoIntegradorG9/public/img/users', 
 
 function UserCard(props) {
   return (
-    <React.StrictMode>
+    <>
       <motion.div
         layout
         animate={{ opacity: 1 }}
@@ -25,7 +25,7 @@ function UserCard(props) {
           <p className="user__info-email">{props.email}</p>
         </div>
       </motion.div>
-    </React.StrictMode>
+    </>
   );
 }
 

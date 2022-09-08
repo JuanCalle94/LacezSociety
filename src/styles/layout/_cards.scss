@@ -5,12 +5,13 @@
   flex-wrap: wrap;
   align-items: center;
   border-radius: 10px;
+  border: solid 1px transparent;
 
   &:hover {
     border: solid 1px $yellow;
   }
 
-  .card__info-image {
+  &-image {
     padding: 0px;
     width: 30%;
     border-radius: 10px;

@@ -8,57 +8,102 @@ import FilterUser from "../components/FilterUser";
 import GeneralCard from "../components/GeneralCard";
 import Cards from "../containers/Cards";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { getData } from "../services/getData";
 
 function DashBoard() {
-  const [dataInfo, setDataInfo] = useState([]);
+
+  const [dataInfo, setDataInfo] = useState([]); // Datos meta de los productos
 
   useEffect(() => {
-    fetch("http://localhost:3030/api/products")
-      .then((response) => response.json())
-      .then((data) => {
-        setDataInfo(data.meta);
+    let interval = setInterval(() => { // Intervalos para refrescar datos de la API actualizada cada 1 seg
+      getData({path:"products"}).then((result) => { 
+        setDataInfo(result.meta)
+      }).catch((err) => {
+        console.log(err);
       });
+    }, 1000);
+
+    return ()=>{
+      clearInterval(interval); // Clean up: Elimina de la memoria el intervalo anteriormente creado y crea uno nuevo
+    }
   }, []);
 
-  const [dataUsers, setDataUsers] = useState([]);
+  const [dataUsers, setDataUsers] = useState([]); // Datos meta de los usuarios
 
   useEffect(() => {
-    fetch("http://localhost:3030/api/users")
-      .then((response) => response.json())
-      .then((data) => {
-        setDataUsers(data.meta);
+    let interval = setInterval(() => { // Intervalos para refrescar datos de la API actualizada cada 1 seg
+      getData({path:"users"}).then((result) => {
+        setDataUsers(result.meta)
+      }).catch((err) => {
+        console.log(err);
       });
+    }, 1000);
+    return ()=>{
+      clearInterval(interval); // Clean up: Elimina de la memoria el intervalo anteriormente creado y crea uno nuevo
+    }
   }, []);
 
-  const [products, setProducts] = useState([]);
-  const [filtered, setFiltered] = useState([]);
-  const [activeCategory, setActiveCategory] = useState(0);
+  const [products, setProducts] = useState([]); // Datos de los productos
+  const [filtered, setFiltered] = useState([]); // Filtro de los productos por categoria
+  const [activeCategory, setActiveCategory] = useState(0); // Activamos categorias para hacer un target (Todos sera la activa por defecto)
 
-  useEffect(() => {
-    fetch("http://localhost:3030/api/products")
-      .then((response) => response.json())
-      .then((data) => {
-        setProducts(data.products);
-        setFiltered(data.products);
-      });
+  useEffect(() => { // Filtro de los productos por categoria
+    getData({path:"products"}).then((result) => {
+      setFiltered(result.products)
+    }).catch((err) => {
+      console.log(err);
+    });
   }, []);
 
-  const [users, setUsers] = useState([]);
-  const [filteredUser, setFilteredUser] = useState([]);
-  const [activeRole, setActiveRole] = useState(2);
 
-  useEffect(() => {
-    fetch("http://localhost:3030/api/users")
-      .then((response) => response.json())
-      .then((data) => {
-        setUsers(data.users);
-        setFilteredUser(data.users);
+  useEffect(() => { // Datos de los productos
+    let interval = setInterval(() => { // Intervalos para refrescar datos de la API actualizada cada 1 seg
+      getData({path:"products"}).then((result) => {
+        setProducts(result.products);
+      }).catch((err) => {
+        console.log(err);
       });
+    }, 1000);
+
+    return ()=>{
+      clearInterval(interval); // clean up: Elimina de la memoria el intervalo anteriormente creado y crea uno nuevo
+    }
   }, []);
+
+  const [users, setUsers] = useState([]); // Datos de los usuarios
+  const [filteredUser, setFilteredUser] = useState([]); // Filtro de los usuarios por rol
+  const [activeRole, setActiveRole] = useState(0); // Activamos roles para hacer un target (Todos sera la activa por defecto)
+
+  useEffect(() => { // Filtro de los productos por categoria
+
+    getData({path:"users"}).then((result) => {
+      setFilteredUser(result.users)
+    }).catch((err) => {
+      console.log(err);
+    });
+  }, []);
+
+
+  useEffect(() => { // Datos de los productos
+
+    let interval = setInterval(() => { // Intervalos para refrescar datos de la API actualizada cada 1 seg
+      getData({path:"users"}).then((result) => {
+        setUsers(result.users);
+      }).catch((err) => {
+        console.log(err);
+      });
+    }, 1000);
+
+    return ()=>{
+      clearInterval(interval); // clean up: Elimina de la memoria el intervalo anteriormente creado y crea uno nuevo
+    }
+
+  }, []);
+
 
   return (
-    <React.StrictMode>
+    <>
       <Header />
       <div>
         <div className="container dashboard__container">
@@ -124,7 +169,7 @@ function DashBoard() {
         </div>
       </div>
       <Footer />
-    </React.StrictMode>
+    </>
   );
 }
 

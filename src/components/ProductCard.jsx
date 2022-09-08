@@ -6,7 +6,7 @@ const image = require.context('../../../ProyectoIntegradorG9/public/img/products
 function ProductCard({ product }) {
 
   return (
-    <React.StrictMode>
+    <>
       <motion.div
         layout
         animate={{ opacity: 1 }}
@@ -26,7 +26,7 @@ function ProductCard({ product }) {
           <p className="card__info-price"><span className="price__currency">$</span>{product.precio}</p>
         </div>
       </motion.div>
-    </React.StrictMode>
+    </>
   );
 }
 
